@@ -1,10 +1,17 @@
-Uniswap
+##Uniswap
+
 消息源：网页
+
 目标：
+
 1，uniswap的发展历程
+
 2，uniswap为什么会被提出
+
 3，uniswap有哪些应用
+
 4，uniswap的源码
+
 
 之前不太好用的方法是EtherDelta
 
@@ -35,16 +42,26 @@ V3：
 
 
 QA：
+
 工厂合约
+
 AMM机制
+
 价格预言机
+
 TWAP
+
 滑点
+
 滑点问题
+
 永续合约
+
 期权
 
 
+
 uniswap  白皮书
+
 https://binschool.app/uniswap-whitepaper/uniswap-whitepaper-v1.html
 
