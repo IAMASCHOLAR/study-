@@ -1,0 +1,55 @@
+// SPDX-License-Identifier: MIT
+//SPDX（Software Package Data Exchange）许可证标识符
+//MIT Liscense Identifier
+pragma solidity ^0.4.0;
+//表示0.4.x以内的
+//全局引入 
+import “filename”;
+//filename的确定：在同一目录下进行引用 ./filename eg: import "./MathLibrary.sol"
+//否则为绝对路径
+import * as symbolName from “filename”
+symbolName 作为命名空间，保存引入的所有符号（函数，变量，合约）
+//避免命名冲突，提高模块化，可读性
+//引用：eg：Math.add（a,b）
+import {symbol1 as alias, symbol2} from “filename”
+symbol1是想在当前项目中使用的别名，symbol2是待引入项目中的符号名
+//有一个”fallback-remapping”机制，空串会映射到“/usr/local/include/solidify”
+
+//。///。/* */。/** /。
+智能合约可能包含
+状态变量：永远存储在合约实例的变量
+uint：无符号整数
+int :有符号整数
+uint32 :指定位数
+布尔类型：bool
+地址类型：address 存储以太坊地址，可能合约地址or普通用户地址
+        address payable 允许发送和接收以太坊，transfer 和send 方法
+状态变量被保存在区块链上，局部变量保存在函数调用的内存中，一个是函数一个是合约
+状态变量的四种修饰符
+public：可以被任何人，包括合约外部用户和其他合约调用
+private：只能在声明该变量或函数的合约内部访问，继承的合约也不能访问
+internal：当前合约或者继承合约可访问
+external：合约外部或其他合约调用，内部调用需要用this
+全局变量：是在 Solidity 中预定义的变量，它们用于提供合约的上下文信息。存于上下文中
+是在 Solidity 中预定义的变量，它们用于提供合约的上下文信息。
+msg.sender：调用当前合约的地址。
+msg.value：发送到合约的以太坊数量。
+block.timestamp：当前区块的时间戳（自 Unix 纪元起的秒数）。
+tx.origin：交易的发起者地址。
+函数：
+当一个合约被部署到区块链上时，它会在区块链上创建一个具体的实例。
+用户或其他合约可以通过合约实例的地址调用其定义的函数，从而请求合约执行特定的操作。
+函数是一种行为，会导致一些结果
+函数修饰符
+  modifier functionModifierName() {
+        a++; // 函数前执行，a表示某个状态变量或者局部变量
+        _;   // 被修饰的函数，占位符，跳转到被修饰函数的主题体
+        a--; // 函数后执行
+    }
+    修改器是一种特殊的函数，用来修改其他函数，不支持重载
+    调用方法
+function increment() public functionModifierName {
+        // 这个函数会在调用时先增加 a，然后执行这段代码，最后再减少 a
+        // 此处可以添加其他逻辑
+    }
+
