@@ -1,0 +1,8 @@
+contract Person {
+    string public name;
+
+    construcor(string memory _name){
+        name = _name;
+    }
+
+}

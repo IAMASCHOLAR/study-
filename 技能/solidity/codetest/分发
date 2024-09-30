@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity 0.8.x;
+
+contract HotFudgeSause{
+    uint public qtyCups = 100;
+    address private zubin = 0x70997970c51812dc3A010C7d01b50e0d17dc79C8;
+
+    function get() public view returns (uint){
+        return qtyCups;
+    }
+    function dispense(uint qtyCups) public returns (uint){
+        uint dispensed = 0;
+        if (msg.sender == zubin){
+            return dispensed;
+        }
+        if (numCups <= qtyCups){
+            qtyCups -= numCups;
+            dispensed = numCups;
+        }
+        return dispensed;
+    }
+
+
+
+}
